@@ -1,1 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - iReshpp</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text-main: #1f2937;
+            --text-light: #6b7280;
+            --bg: #f3f4f6;
+            --white: #ffffff;
+            --accent: #dbeafe;
+            --border: #e5e7eb;
+            --danger: #dc2626;
+            --success: #059669;
+        }
 
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+            background-color: var(--bg); 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        .wrapper { padding: 20px; display: flex; justify-content: center; }
+        
+        .policy-container { 
+            max-width: 800px; 
+            width: 100%; 
+            background: var(--white); 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        h1 { font-size: 2.25rem; color: #111827; margin-bottom: 0.5rem; }
+        .effective-date { color: var(--text-light); font-size: 0.9rem; margin-bottom: 2rem; display: block; }
+        
+        h2 { 
+            font-size: 1.5rem; 
+            color: var(--secondary); 
+            margin-top: 2.5rem; 
+            padding-bottom: 10px; 
+            border-bottom: 2px solid var(--accent);
+        }
+
+        h3 { 
+            font-size: 1.1rem; 
+            color: #374151; 
+            margin-top: 1.5rem; 
+            font-weight: 600;
+        }
+
+        p, li { margin-bottom: 1rem; font-size: 1rem; color: #4b5563; }
+        ul { padding-left: 1.5rem; }
+
+        .highlight-box { 
+            background: var(--accent); 
+            padding: 20px; 
+            border-radius: 8px; 
+            border-left: 4px solid var(--primary);
+            margin: 2rem 0;
+        }
+
+        .example-tag {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .policy-container { padding: 25px 20px; }
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <article class="policy-container">
+        <header>
+            <h1>iReshp Privacy Policy</h1>
+            <span class="effective-date">Effective Date: April 19, 2026</span>
+        </header>
+
+        <section>
+            <p>At iReshp, we operate under a <strong>Privacy-by-Design</strong> philosophy. This policy explains how we handle your information across the iReshp mobile app and ireshp.com. Our goal is to provide a social experience that respects your digital sovereignty through encryption and transparency.</p>
+        </section>
+
+        <section>
+            <h2>1. Information We Collect</h2>
+            <p>We collect information to provide, secure, and improve our services. This is categorized as follows:</p>
+            
+            <h3>A. Information You Provide Directly</h3>
+            <div class="example-tag">Example: Creating an account or posting a Reel.</div>
+            <ul>
+                <li><strong>Registration Data:</strong> Email address, username, and password. This is required to create your unique identity on the platform.</li>
+                <li><strong>Profile Data:</strong> Display name, bio, and profile picture. These are public-facing elements of your account.</li>
+                <li><strong>User-Generated Content (UGC):</strong> Public posts, "Reels" (videos), and comments. When you upload a Reel, we process the video file and associated metadata (like the time it was posted).</li>
+                <li><strong>Support Correspondence:</strong> If you contact us via email, we collect your email address and the content of your message to resolve your inquiry.</li>
+            </ul>
+
+            <h3>B. Automatically Collected Information</h3>
+            <div class="example-tag">Example: Preventing a bot from creating 1,000 fake accounts.</div>
+            <ul>
+                <li><strong>Device Information:</strong> We collect hardware model, operating system version, unique device identifiers (e.g., IDFV/Android ID), and mobile network information.</li>
+                <li><strong>Security Logs:</strong> IP addresses and access timestamps. We use this for our <em>Honeypot</em> security logic to identify and block malicious login attempts.</li>
+                <li><strong>Crash Reports:</strong> Technical data regarding app performance to fix bugs and prevent service interruptions.</li>
+            </ul>
+
+            <h3>C. Information from Third Parties</h3>
+            <ul>
+                <li><strong>Analytics Providers:</strong> We may receive aggregated, non-identifiable data about how users find iReshp in the App Store or Play Store.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. The "Reshlock" Encryption Standard</h2>
+            <div class="highlight-box">
+                <strong>End-to-End Encryption (E2EE):</strong> All private one-on-one messages are encrypted using the Reshlock protocol. This means the content is encrypted on your device and only decrypted on the recipient's device.
+            </div>
+            <p>Because of this architecture:</p>
+            <ul>
+                <li>We <strong>cannot</strong> read your private messages.</li>
+                <li>We <strong>cannot</strong> hand over your message content to law enforcement, as we do not possess the keys.</li>
+                <li>Metadata (who you messaged and when) is kept to the absolute minimum required to route the message.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. How We Use Information</h2>
+            <div class="example-tag">Example: Personalizing your feed without tracking you across other apps.</div>
+            <ul>
+                <li><strong>Service Delivery:</strong> To manage your account, host your content, and facilitate interactions.</li>
+                <li><strong>Safety & Integrity:</strong> To enforce our Terms of Service. For example, if our system detects a "Honeypot" trigger (multiple rapid failures from one IP), we may temporarily suspend access to protect the community.</li>
+                <li><strong>Product Improvement:</strong> Analyzing which features (like Reels vs. Feed) are used most to guide our development roadmap.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Data Sharing & Third-Party Processors</h2>
+            <p>We do not sell your data. We only share information with service providers who are contractually obligated to protect it:</p>
+            <ul>
+                <li><strong>Google Firebase:</strong> Handles secure authentication and our real-time database.</li>
+                <li><strong>Cloudinary:</strong> Provides secure storage and optimized delivery for your images and videos.</li>
+                <li><strong>Infrastructure Providers:</strong> We use industry-standard cloud hosting (e.g., DigitalOcean) to run our servers.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Your Rights & Data Control</h2>
+            <p>Regardless of your location, iReshp provides the following controls:</p>
+            <ul>
+                <li><strong>Access & Export:</strong> You can request a copy of the data we hold about you.</li>
+                <li><strong>Correction:</strong> You can update your profile information at any time within the app settings.</li>
+                <li><strong>Objection:</strong> You can object to our processing of your data for specific purposes.</li>
+            </ul>
+            
+            <h3 id="deletion" style="color: var(--danger);">Account Deletion</h3>
+            <p>In compliance with Google Play requirements, we offer two ways to delete your account and all associated data (Posts, Reels, and Profile):</p>
+            <ul>
+                <li><strong>In-App:</strong> Navigate to Settings > Account > Delete Account.</li>
+                <li><strong>Web-Based:</strong> Visit <a href="https://github.com/Stylishklavy/legal/edit/main/delete-account.html">ireshp.com/delete-account</a> to submit a deletion request via our secure portal.</li>
+            </ul>
+            <p><em>Note: Data is purged from our production systems within 30 days of the request.</em></p>
+        </section>
+
+        <section>
+            <h2>6. Device Permissions</h2>
+            <p>To provide a rich multimedia experience, the iReshp app requests the following permissions:</p>
+            <ul>
+                <li><strong>Camera:</strong> To record Reels and take profile photos.</li>
+                <li><strong>Microphone:</strong> To capture audio for your video content.</li>
+                <li><strong>Photo Library:</strong> To allow you to upload existing media from your device.</li>
+                <li><strong>Notifications:</strong> To keep you updated on interactions and security alerts.</li>
+            </ul>
+            <p>You can revoke these permissions at any time through your device's system settings.</p>
+        </section>
+
+        <section>
+            <h2>7. Children's Privacy</h2>
+            <p>iReshp is strictly for users <strong>13 years of age or older</strong>. We do not knowingly collect data from children under 13. If we become aware that a child under 13 has created an account, we will terminate the account and delete all associated data immediately.</p>
+        </section>
+
+        <section>
+            <h2>8. International Data Transfers</h2>
+            <p>iReshp is a global platform. Your information may be stored and processed in any country where we have facilities or engage service providers (predominantly the United States). By using the service, you consent to the transfer of information to countries outside of your country of residence.</p>
+        </section>
+
+        <section>
+            <h2>9. Changes to This Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date." We recommend reviewing this policy periodically for any changes.</p>
+        </section>
+
+        <section>
+            <h2>10. Contact Us</h2>
+            <p>For questions, data requests, or legal inquiries, please reach out to our privacy officer:</p>
+            <p><strong>Email:</strong> support@ireshp.com</p>
+            <p><strong>Legal:</strong> legal@ireshp.com</p>
+        </section>
+
+        <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.8rem;">
+            &copy; 2026 iReshp. Built with Reshlock Privacy Architecture.
+        </footer>
+    </article>
+</div>
+</body>
+</html>-

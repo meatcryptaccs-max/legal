@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - iReshp</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text-main: #1f2937;
+            --text-light: #6b7280;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --accent: #dbeafe;
+        }
+
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+            background-color: var(--bg); 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        .wrapper { padding: 20px; display: flex; justify-content: center; }
+        
+        .terms-container { 
+            max-width: 800px; 
+            width: 100%; 
+            background: var(--white); 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
+        }
+
+        h1 { font-size: 2.25rem; color: #111827; margin-bottom: 0.5rem; }
+        .effective-date { color: var(--text-light); font-size: 0.9rem; margin-bottom: 2rem; display: block; }
+        
+        h2 { 
+            font-size: 1.5rem; 
+            color: var(--secondary); 
+            margin-top: 2.5rem; 
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+        }
+
+        p, li { margin-bottom: 1rem; font-size: 1.05rem; }
+        ul { padding-left: 1.5rem; }
+
+        .legal-notice { 
+            background: #fffbeb; 
+            padding: 20px; 
+            border-radius: 8px; 
+            border-left: 4px solid #f59e0b;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 640px) {
+            .terms-container { padding: 25px 20px; }
+            h1 { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <article class="terms-container">
+        <header>
+            <h1>Terms of Service</h1>
+            <span class="effective-date">Effective Date: April 14, 2026</span>
+        </header>
+
+        <section class="legal-notice">
+            <strong>Important:</strong> These Terms of Service constitute a binding legal agreement between you and iReshp regarding your use of our platform, including the mobile app and website[cite: 5, 8].
+        </section>
+
+        <section>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By creating an account or accessing the iReshp platform, you agree to be bound by these Terms. If you do not agree to these terms, you may not use our services[cite: 6].</p>
+        </section>
+
+        <section>
+            <h2>2. Eligibility and Account Security</h2>
+            <ul>
+                <li><strong>Age Requirement:</strong> You must be at least 13 years old to use iReshp.</li>
+                <li><strong>Account Integrity:</strong> You are responsible for maintaining the confidentiality of your account credentials (phone number and display name)[cite: 13].</li>
+                <li><strong>Prohibited Use:</strong> You may not use the platform for any illegal activities or to distribute malicious software.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Content and Conduct</h2>
+            <p><strong>Public Content:</strong> You retain ownership of the content you post to iReshp Feeds and Reels, but you grant iReshp a worldwide license to host and distribute this public content[cite: 17, 35].</p>
+            <p><strong>Private Messaging:</strong> iReshp utilizes a zero-knowledge, end-to-end encrypted architecture for private chats[cite: 29, 30]. We do not monitor or access private conversations[cite: 32].</p>
+            <p><strong>Restrictions:</strong> Users are prohibited from posting content that is defamatory, hateful, or infringing on intellectual property rights.</p>
+        </section>
+
+        <section>
+            <h2>4. Data and Privacy</h2>
+            <p>Your use of iReshp is also governed by our <strong>Privacy Policy</strong>. We prioritize a "privacy-first" architecture to keep your personal data under your control[cite: 7].</p>
+            <ul>
+                <li><strong>Data Storage:</strong> User data is stored on secure cloud servers provided by DigitalOcean[cite: 39].</li>
+                <li><strong>Data Purge:</strong> Upon account deletion, all identifiable data is permanently removed from active production databases[cite: 57].</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Termination</h2>
+            <p>iReshp reserves the right to suspend or terminate accounts that violate these terms or engage in fraudulent activity[cite: 14]. Users may delete their own accounts at any time via the in-app settings or our web-based deletion portal[cite: 55, 56].</p>
+        </section>
+
+        <section>
+            <h2>6. Limitation of Liability</h2>
+            <p>iReshp provides its services "as is" and "as available." To the maximum extent permitted by law, iReshp shall not be liable for any indirect, incidental, or consequential damages arising from your use of the platform.</p>
+        </section>
+
+        <section>
+            <h2>7. Contact and Support</h2>
+            <p>For questions or support regarding these terms, please contact our team at: <strong>support@ireshp.com</strong>[cite: 61].</p>
+        </section>
+
+        <footer style="text-align: center; margin-top: 40px; color: var(--text-light); font-size: 0.85rem;">
+            &copy; 2026 iReshp. All rights reserved.
+        </footer>
+    </article>
+</div>
+
+</body>
+</html>

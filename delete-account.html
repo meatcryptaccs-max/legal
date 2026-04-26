@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - iReshp</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --danger: #dc2626;
+            --text-main: #1f2937;
+            --text-light: #6b7280;
+            --bg: #f8fafc;
+            --success: #059669;
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+            background-color: var(--bg); 
+            margin: 0; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .delete-container { 
+            max-width: 500px; 
+            width: 100%; 
+            background: var(--white); 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); 
+            margin: 20px;
+        }
+
+        h1 { font-size: 1.75rem; color: #111827; margin-bottom: 1rem; text-align: center; }
+        
+        .warning-box {
+            background-color: #fff5f5;
+            border-left: 4px solid var(--danger);
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .instruction {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #d1d5db; 
+            border-radius: 6px; 
+            font-size: 1rem;
+        }
+
+        .btn-delete {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-delete:hover { background-color: #b91c1c; }
+
+        .footer-links {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        
+        .footer-links a { color: var(--primary); text-decoration: none; }
+
+        .hidden { display: none; }
+        .success-box {
+            background-color: #ecfdf5;
+            border-left: 4px solid var(--success);
+            padding: 15px;
+            margin-bottom: 25px;
+            color: #065f46;
+        }
+    </style>
+</head>
+<body>
+
+<div class="delete-container">
+    <h1>Delete iReshp Account</h1>
+    
+    <div class="warning-box">
+        <strong>Warning:</strong> Deletion is permanent. Once processed, your profile, reels, public posts, and undelivered encrypted messages will be removed from our production databases within 30 days.
+    </div>
+
+    <div id="step1">
+        <p class="instruction">Enter your registered email address to receive a verification code.</p>
+        <form id="requestForm">
+            <div class="form-group">
+                <label for="email">Registered Email Address</label>
+                <input type="email" id="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="reason">Reason for leaving (Optional)</label>
+                <input type="text" id="reason" placeholder="Help us improve">
+            </div>
+            <button type="submit" class="btn-delete">Send Verification Code</button>
+        </form>
+    </div>
+
+    <div id="step2" class="hidden">
+        <p class="instruction">A 6-digit code was sent to <span id="displayEmail" style="font-weight:bold;"></span>. Enter it below to confirm deletion.</p>
+        <form id="verifyForm">
+            <div class="form-group">
+                <label for="otp">Verification Code</label>
+                <input type="text" id="otp" maxlength="6" pattern="\d{6}" placeholder="123456" required>
+            </div>
+            <button type="submit" class="btn-delete">Confirm Permanent Deletion</button>
+        </form>
+    </div>
+
+    <div id="step3" class="hidden">
+        <div class="success-box">
+            <strong>Request Confirmed.</strong> Your account has been scheduled for deletion. You have been logged out of all devices. Data will be purged in 30 days.
+        </div>
+        <p class="instruction">You can cancel this request at any time by logging back into the iReshp app before the 30-day period expires.</p>
+    </div>
+
+    <div class="footer-links">
+        <p>Changed your mind? <a href="https://github.com/Stylishklavy/legal/edit/main/Privacy.html">Back to Privacy Policy</a></p>
+    </div>
+</div>
+
+<script>
+    // MASTER CONFIG: Change this to your HTTPS tunnel URL (e.g., ngrok) when testing from GitHub Pages
+    const API_BASE_URL = 'http://10.125.133.185:8080';
+
+    const requestForm = document.getElementById('requestForm');
+    const verifyForm = document.getElementById('verifyForm');
+    
+    requestForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        document.getElementById('displayEmail').innerText = email;
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/v1/auth/request-deletion`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        } catch (err) {
+            alert("Failed to send code. Please try again.");
+        }
+    });
+
+    verifyForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const otp = document.getElementById('otp').value;
+        const email = document.getElementById('email').value;
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/v1/auth/confirm-deletion`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, otp })
+            });
+            
+            if (response.ok) {
+                document.getElementById('step2').classList.add('hidden');
+                document.getElementById('step3').classList.remove('hidden');
+            } else {
+                alert("Invalid or expired code.");
+            }
+        } catch (err) {
+            alert("Verification failed.");
+        }
+    });
+</script>
+</body>
+</html>
+

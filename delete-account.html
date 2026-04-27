@@ -6,8 +6,8 @@
     <title>Delete Account - iReshp</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --danger: #dc2626;
+            --primary: #40A7E3; /* iReshp Primary Blue */
+            --danger: #FF3B30; /* iOS/iReshp Danger Red */
             --text-main: #1f2937;
             --text-light: #6b7280;
             --bg: #f8fafc;
@@ -47,6 +47,15 @@
             margin-bottom: 25px;
             font-size: 0.95rem;
         }
+        
+        .error-message {
+            background-color: #fef2f2;
+            color: #991b1b;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
 
         .instruction {
             font-size: 0.95rem;
@@ -62,6 +71,7 @@
             border: 1px solid #d1d5db; 
             border-radius: 6px; 
             font-size: 1rem;
+            outline-color: var(--primary);
         }
 
         .btn-delete {
@@ -78,6 +88,12 @@
         }
 
         .btn-delete:hover { background-color: #b91c1c; }
+        .btn-delete:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        .btn-secondary { background-color: var(--primary); }
 
         .footer-links {
             margin-top: 30px;
@@ -107,7 +123,10 @@
     </div>
 
     <div id="step1">
-        <p class="instruction">Enter your registered email address to receive a verification code.</p>
+        <p class="instruction">Enter your registered email address to receive a secure 6-digit verification code.</p>
+        
+        <div id="error-step1" class="error-message hidden"></div>
+
         <form id="requestForm">
             <div class="form-group">
                 <label for="email">Registered Email Address</label>
@@ -117,12 +136,15 @@
                 <label for="reason">Reason for leaving (Optional)</label>
                 <input type="text" id="reason" placeholder="Help us improve">
             </div>
-            <button type="submit" class="btn-delete">Send Verification Code</button>
+            <button type="submit" class="btn-delete btn-secondary" id="btn-request">Send Verification Code</button>
         </form>
     </div>
 
     <div id="step2" class="hidden">
         <p class="instruction">A 6-digit code was sent to <span id="displayEmail" style="font-weight:bold;"></span>. Enter it below to confirm deletion.</p>
+        
+        <div id="error-step2" class="error-message hidden"></div>
+
         <form id="verifyForm">
             <div class="form-group">
                 <label for="otp">Verification Code</label>

@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Account - iReshp</title>
+    <title>Delete Account - Kilbeans</title>
     <style>
         :root {
-            --primary: #40A7E3; /* iReshp Primary Blue */
-            --danger: #FF3B30; /* iOS/iReshp Danger Red */
-            --text-main: #1f2937;
-            --text-light: #6b7280;
-            --bg: #f8fafc;
-            --success: #059669;
-            --white: #ffffff;
+            --primary: #3b82f6; /* Premium Blue */
+            --danger: #ef4444; /* High-Visibility Red */
+            --text-main: #f9fafb;
+            --text-light: #9ca3af;
+            --bg: #000000; /* Pure OLED Black */
+            --card-bg: #111827; /* Dark Grey Elevation */
+            --input-bg: #1f2937;
+            --border: #374151;
+            --success: #10b981;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; transition: all 0.2s ease; }
+        
         body { 
-            font-family: 'Inter', -apple-system, sans-serif; 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
             line-height: 1.6; 
             color: var(--text-main); 
             background-color: var(--bg); 
@@ -29,49 +32,59 @@
         }
 
         .delete-container { 
-            max-width: 500px; 
-            width: 100%; 
-            background: var(--white); 
+            max-width: 450px; 
+            width: 90%; 
+            background: var(--card-bg); 
             padding: 40px; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); 
+            border-radius: 20px; 
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
             margin: 20px;
         }
 
-        h1 { font-size: 1.75rem; color: #111827; margin-bottom: 1rem; text-align: center; }
+        h1 { font-size: 1.5rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; text-align: center; letter-spacing: -0.025em; }
         
         .warning-box {
-            background-color: #fff5f5;
-            border-left: 4px solid var(--danger);
-            padding: 15px;
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 12px;
+            padding: 16px;
             margin-bottom: 25px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: #fca5a5;
         }
         
-        .error-message {
-            background-color: #fef2f2;
-            color: #991b1b;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-        }
-
         .instruction {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-light);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            text-align: center;
         }
 
         .form-group { margin-bottom: 20px; }
-        label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
+        
+        label { 
+            display: block; 
+            font-weight: 500; 
+            margin-bottom: 8px; 
+            font-size: 0.85rem; 
+            color: var(--text-light);
+        }
+
         input { 
             width: 100%; 
-            padding: 12px; 
-            border: 1px solid #d1d5db; 
-            border-radius: 6px; 
+            padding: 14px; 
+            background-color: var(--input-bg);
+            border: 1px solid var(--border); 
+            border-radius: 10px; 
             font-size: 1rem;
-            outline-color: var(--primary);
+            color: white;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
         }
 
         .btn-delete {
@@ -80,85 +93,91 @@
             background-color: var(--danger);
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 10px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s;
+            margin-top: 10px;
         }
 
-        .btn-delete:hover { background-color: #b91c1c; }
-        .btn-delete:disabled {
-            background-color: #9ca3af;
-            cursor: not-allowed;
-            opacity: 0.7;
+        .btn-delete:hover { filter: brightness(1.1); transform: translateY(-1px); }
+        .btn-delete:active { transform: translateY(0); }
+
+        .btn-secondary { 
+            background-color: var(--primary); 
         }
-        .btn-secondary { background-color: var(--primary); }
 
         .footer-links {
-            margin-top: 30px;
+            margin-top: 32px;
             text-align: center;
             font-size: 0.85rem;
         }
         
-        .footer-links a { color: var(--primary); text-decoration: none; }
+        .footer-links a { color: var(--primary); text-decoration: none; font-weight: 500; }
+        .footer-links a:hover { text-decoration: underline; }
 
         .hidden { display: none; }
+
         .success-box {
-            background-color: #ecfdf5;
-            border-left: 4px solid var(--success);
-            padding: 15px;
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 20px;
             margin-bottom: 25px;
-            color: #065f46;
+            color: #6ee7b7;
+            text-align: center;
         }
+
+        /* Skeleton loader effect for buttons during fetch */
+        .loading { opacity: 0.7; pointer-events: none; }
     </style>
 </head>
 <body>
 
 <div class="delete-container">
-    <h1>Delete iReshp Account</h1>
+    <h1>Delete Kilbeans Account</h1>
     
     <div class="warning-box">
-        <strong>Warning:</strong> Deletion is permanent. Once processed, your profile, reels, public posts, and undelivered encrypted messages will be removed from our production databases within 30 days.
+        <strong>Terminal Action:</strong> This will permanently purge your profile, reels, and data from our ecosystem. This cannot be undone after the 30-day grace period.
     </div>
 
+    <!-- STEP 1: Request Code -->
     <div id="step1">
-        <p class="instruction">Enter your registered email address to receive a secure 6-digit verification code.</p>
+        <p class="instruction">Enter your email to receive a secure verification code.</p>
         
-        <div id="error-step1" class="error-message hidden"></div>
-
         <form id="requestForm">
             <div class="form-group">
-                <label for="email">Registered Email Address</label>
-                <input type="email" id="email" placeholder="you@example.com" required>
+                <label for="email">Account Email</label>
+                <input type="email" id="email" placeholder="name@email.com" required>
             </div>
             <div class="form-group">
-                <label for="reason">Reason for leaving (Optional)</label>
-                <input type="text" id="reason" placeholder="Help us improve">
+                <label for="reason">Why are you leaving? (Optional)</label>
+                <input type="text" id="reason" placeholder="Feedback helps us grow">
             </div>
-            <button type="submit" class="btn-delete btn-secondary" id="btn-request">Send Verification Code</button>
+            <button type="submit" class="btn-delete btn-secondary" id="btn-request">Send Code</button>
         </form>
     </div>
 
+    <!-- STEP 2: Verify Code -->
     <div id="step2" class="hidden">
-        <p class="instruction">A 6-digit code was sent to <span id="displayEmail" style="font-weight:bold;"></span>. Enter it below to confirm deletion.</p>
+        <p class="instruction">We sent a code to <span id="displayEmail" style="color: var(--text-main); font-weight: 600;"></span></p>
         
-        <div id="error-step2" class="error-message hidden"></div>
-
         <form id="verifyForm">
             <div class="form-group">
-                <label for="otp">Verification Code</label>
-                <input type="text" id="otp" maxlength="6" pattern="\d{6}" placeholder="123456" required>
+                <label for="otp">6-Digit Verification Code</label>
+                <input type="text" id="otp" maxlength="6" pattern="\d{6}" placeholder="000000" style="text-align: center; letter-spacing: 8px; font-weight: bold;" required>
             </div>
-            <button type="submit" class="btn-delete">Confirm Permanent Deletion</button>
+            <button type="submit" class="btn-delete">Confirm Account Deletion</button>
         </form>
     </div>
 
+    <!-- STEP 3: Success -->
     <div id="step3" class="hidden">
         <div class="success-box">
-            <strong>Request Confirmed.</strong> Your account has been scheduled for deletion. You have been logged out of all devices. Data will be purged in 30 days.
+            <strong>Deletion Scheduled</strong><br>
+            Your account is now deactivated and hidden.
         </div>
-        <p class="instruction">You can cancel this request at any time by logging back into the iReshp app before the 30-day period expires.</p>
+        <p class="instruction">Data will be terminally purged in 30 days. To cancel, simply log back into the Kilbeans app before then.</p>
     </div>
 
     <div class="footer-links">
@@ -167,16 +186,19 @@
 </div>
 
 <script>
-    // MASTER CONFIG: Change this to your HTTPS tunnel URL (e.g., ngrok) when testing from GitHub Pages
     const API_BASE_URL = 'https://node-b49a.onrender.com';
 
     const requestForm = document.getElementById('requestForm');
     const verifyForm = document.getElementById('verifyForm');
+    const btnRequest = document.getElementById('btn-request');
     
     requestForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = document.getElementById('email').value;
         document.getElementById('displayEmail').innerText = email;
+        
+        btnRequest.innerText = "Sending...";
+        btnRequest.classList.add('loading');
 
         try {
             const response = await fetch(`${API_BASE_URL}/v1/auth/request-deletion`, {
@@ -188,7 +210,9 @@
             document.getElementById('step1').classList.add('hidden');
             document.getElementById('step2').classList.remove('hidden');
         } catch (err) {
-            alert("Failed to send code. Please try again.");
+            alert("Connection error. Check your internet and try again.");
+            btnRequest.innerText = "Send Code";
+            btnRequest.classList.remove('loading');
         }
     });
 
@@ -196,6 +220,10 @@
         e.preventDefault();
         const otp = document.getElementById('otp').value;
         const email = document.getElementById('email').value;
+        const btnVerify = e.target.querySelector('button');
+
+        btnVerify.innerText = "Processing...";
+        btnVerify.classList.add('loading');
 
         try {
             const response = await fetch(`${API_BASE_URL}/v1/auth/confirm-deletion`, {
@@ -208,13 +236,16 @@
                 document.getElementById('step2').classList.add('hidden');
                 document.getElementById('step3').classList.remove('hidden');
             } else {
-                alert("Invalid or expired code.");
+                alert("Invalid or expired code. Please check your email.");
+                btnVerify.innerText = "Confirm Account Deletion";
+                btnVerify.classList.remove('loading');
             }
         } catch (err) {
-            alert("Verification failed.");
+            alert("Verification failed. Please try again later.");
+            btnVerify.innerText = "Confirm Account Deletion";
+            btnVerify.classList.remove('loading');
         }
     });
 </script>
 </body>
 </html>
-

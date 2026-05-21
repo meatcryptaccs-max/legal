@@ -1,1 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Safety Policy - iReshp</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text-main: #1f2937;
+            --text-light: #6b7280;
+            --bg: #fdf2f2; /* Light red tint for importance */
+            --white: #ffffff;
+            --accent: #fee2e2;
+            --border: #fecaca;
+            --danger: #dc2626;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+            background-color: var(--bg); 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        .wrapper { padding: 20px; display: flex; justify-content: center; }
+        
+        .policy-container { 
+            max-width: 800px; 
+            width: 100%; 
+            background: var(--white); 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            border-top: 6px solid var(--danger);
+        }
+
+        h1 { font-size: 2.25rem; color: #111827; margin-bottom: 0.5rem; }
+        .effective-date { color: var(--text-light); font-size: 0.9rem; margin-bottom: 2rem; display: block; }
+        
+        h2 { 
+            font-size: 1.5rem; 
+            color: var(--danger); 
+            margin-top: 2.5rem; 
+            padding-bottom: 10px; 
+            border-bottom: 2px solid var(--accent);
+        }
+
+        h3 { 
+            font-size: 1.1rem; 
+            color: #374151; 
+            margin-top: 1.5rem; 
+            font-weight: 600;
+        }
+
+        p, li { margin-bottom: 1rem; font-size: 1rem; color: #4b5563; }
+        ul { padding-left: 1.5rem; }
+
+        .alert-box { 
+            background: #fef2f2; 
+            padding: 20px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .legal-reference {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 640px) {
+            .policy-container { padding: 25px 20px; }
+            h1 { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <article class="policy-container">
+        <header>
+            <h1>Child Safety Standards</h1>
+            <span class="effective-date">Last Updated: May 21, 2026</span>
+        </header>
+
+        <section>
+            <h2>1. Zero Tolerance and Reporting</h2>
+            <div class="alert-box">
+                <strong>Mandatory Disclosure:</strong> iReshp maintains a zero-tolerance policy for Child Sexual Abuse Material (CSAM) and any content that endangers minors. We comply with all applicable global laws, including 18 U.S.C. § 2258A.
+            </div>
+            <p>Any user found to be uploading, sharing, or soliciting illegal content involving minors will face an immediate, permanent device-level ban. We will report all such incidents, including routing metadata and IP addresses, to the <strong>National Center for Missing & Exploited Children (NCMEC)</strong> and relevant law enforcement agencies in Kenya and the user's jurisdiction.</p>
+        </section>
+
+        <section>
+            <h2>2. 18+ Access and Age Verification</h2>
+            <p>iReshp is strictly intended for individuals 18 years of age or older. We utilize a multi-layered approach to enforce this restriction:</p>
+            <ul>
+                <li><strong>Age-Gating:</strong> All new users must provide a valid date of birth. Profiles indicating an age under 18 are blocked from registration.</li>
+                <li><strong>Identity Integrity:</strong> We utilize technical fingerprints to prevent users previously banned for age violations from creating new accounts.</li>
+                <li><strong>Proactive Monitoring:</strong> Our <strong>Honeypot security logic</strong> and human moderation teams scan for indicators of underage usage. If an account is suspected to belong to a minor, it is immediately suspended pending verification.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Prohibited Content and Conduct</h2>
+            <div class="legal-reference">Policy: Google Play Child Safety Section</div>
+            <p>iReshp prohibits any behavior that facilitates the harm of minors, even within our 18+ ecosystem. Prohibited acts include:</p>
+            <ul>
+                <li><strong>Grooming and Solicitation:</strong> Using the platform to establish relationships with minors for sexual exploitation or illegal acts.</li>
+                <li><strong>Sextortion:</strong> Threatening to release sensitive images of a minor.</li>
+                <li><strong>Non-Consensual Imagery:</strong> The distribution of sexual content involving minors (CSAM), whether AI-generated or real.</li>
+                <li><strong>Dangerous Activities:</strong> Content that encourages minors to engage in harmful or illegal acts.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Safety Architecture and Detection</h2>
+            <p>To ensure a safe environment, we employ an automated and human-led safety stack:</p>
+            <h3>4.1 Automated Hashing</h3>
+            <p>We utilize standardized industry hash-matching technology to detect known CSAM during the media upload process for Reels and Posts. These images/videos are blocked before they are ever visible to other users.</p>
+            <h3>4.2 AI Moderation</h3>
+            <p>Integrated AI models scan public text and unencrypted media for patterns associated with predatory behavior or the sexualization of children.</p>
+            <h3>4.3 E2EE Safeguards</h3>
+            <p>While Direct Messages are End-to-End Encrypted (E2EE), we provide users with tools to report content from within the encrypted bubble. Once reported, a copy of the specific message is transmitted to our safety team for review and reporting to NCMEC.</p>
+        </section>
+
+        <section>
+            <h2>5. Reporting Tools for Users</h2>
+            <p>We provide prominent, easy-to-use reporting mechanisms on every piece of content (Reels, Posts, and DMs). Users are encouraged to report any content that appears to involve a minor or illegal activity.</p>
+            <ol>
+                <li><strong>One-Tap Reporting:</strong> Accessible via the "Report" button on any post or profile.</li>
+                <li><strong>Expedited Review:</strong> Reports categorized as "Child Safety" or "CSAM" are moved to a high-priority queue for immediate human intervention.</li>
+                <li><strong>Feedback Loop:</strong> We notify the reporter of the action taken while maintaining the privacy of our legal reporting process.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>6. Victim Resources</h2>
+            <p>If you or someone you know has been a victim of exploitation involving a minor, please use these global resources:</p>
+            <ul>
+                <li><strong>NCMEC:</strong> <a href="https://report.cybertip.org">CyberTipline</a></li>
+                <li><strong>StopNCII:</strong> <a href="https://stopncii.org">Stop Non-Consensual Intimate Image Abuse</a></li>
+            </ul>
+        </section>
+
+        <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.8rem;">
+            &copy; 2026 iReshp. Dedicated to a Safe and Human-Centric Social Experience.
+        </footer>
+    </article>
+</div>
+</body>
+</html>
 
